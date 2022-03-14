@@ -21,7 +21,6 @@ export container_list="
         jonaswinkler/paperless-ng \
         seknox/guacd \
         seknox/trasa \
-        bunkerity/bunkerized-nginx \
         linuxserver/swag \
         authelia/authelia \
         beanbag/reviewboard:latest \
