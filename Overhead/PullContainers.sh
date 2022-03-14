@@ -27,6 +27,7 @@ export container_list="
         stedolan/jq \
         perara/wg-manager \
         pihole/pihole \
+        lazyteam/lazydocker \
         linuxserver/swag \
         authelia/authelia 
         "
