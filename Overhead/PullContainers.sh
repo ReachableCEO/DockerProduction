@@ -32,5 +32,5 @@ export container_list="
         "
 for container in $container_list;
 do
-        docker pull $container
+        docker pull $container &
 done
