@@ -19,7 +19,7 @@ services:
       - DUCKDNSTOKEN= #optional
       - EMAIL=prodtechopsalerts@turnsys.com #optional
       - ONLY_SUBDOMAINS=false #optional
-      - EXTRA_DOMAINS= #optional
+      - EXTRA_DOMAINS=turnsys.com
       - STAGING=false #optional
     volumes:
       - /docker/storage/infra/swag/config:/config
