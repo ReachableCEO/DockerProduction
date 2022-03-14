@@ -21,12 +21,14 @@ export container_list="
         jonaswinkler/paperless-ng \
         seknox/guacd \
         seknox/trasa \
-        linuxserver/swag \
-        authelia/authelia \
         beanbag/reviewboard:latest \
+        xetusoss/archiva \
         containrrr/watchtower:latest \
+        stedolan/jq \
         perara/wg-manager \
-        xetusoss/archiva
+        pihole/pihole \
+        linuxserver/swag \
+        authelia/authelia 
         "
 for container in $container_list;
 do
