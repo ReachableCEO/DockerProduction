@@ -26,9 +26,9 @@ export container_list="
         authelia/authelia \
         beanbag/reviewboard:latest \
         containrrr/watchtower:latest \
+        perara/wg-manager \
         xetusoss/archiva
         "
-
 for container in $container_list;
 do
         docker pull $container
