@@ -13,4 +13,4 @@ services:
     tty: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./config:/.config/jesseduffield/lazydocker
+      - /docker/storage/overhead/lazydocker:/.config/jesseduffield/lazydocker
