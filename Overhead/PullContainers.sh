@@ -29,7 +29,8 @@ export container_list="
         pihole/pihole \
         lazyteam/lazydocker \
         linuxserver/swag \
-        authelia/authelia 
+        authelia/authelia \
+        pihole/pihole
         "
 for container in $container_list;
 do
