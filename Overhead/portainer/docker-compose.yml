@@ -12,4 +12,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /docker/storage/overhead/portainer:/data
     ports:
-      - 1002:9000
+      - 1001:9000
