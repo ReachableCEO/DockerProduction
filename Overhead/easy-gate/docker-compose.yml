@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    easy-gate:
+        container_name: easy-gate
+        ports:
+            - '1001:8080'
+        volumes:
+            - '/docker/Conhost/overhead/easy-gate/easy-gate.json:/etc/easy-gate/easy-gate.json'
+        restart: unless-stopped
+        image: r7wx/easy-gate
