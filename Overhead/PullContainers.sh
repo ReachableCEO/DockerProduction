@@ -1,12 +1,10 @@
 #!/bin/bash
-
 export container_list="
         jenkins/jenkins \
         elabftw/elabimg \
         huginn/huginn \
         phpipam/phpipam-www \
         photoprism/photoprism \
-        deamos/openstreamingplatform \
         securecompliance/gvm:debian-master-data-full \
         securecompliance/gvm:debian-master-data \
         securecompliance/gvm:debian-master-full \
@@ -21,17 +19,16 @@ export container_list="
         jonaswinkler/paperless-ng \
         seknox/guacd \
         seknox/trasa \
-        beanbag/reviewboard:latest \
-        xetusoss/archiva \
-        containrrr/watchtower:latest \
-        stedolan/jq \
-        perara/wg-manager \
-        pihole/pihole \
-        lazyteam/lazydocker \
-        linuxserver/swag \
         authelia/authelia \
-        pihole/pihole
-        "
+        beanbag/reviewboard:latest \
+        pihole/pihole \
+        stedolan/jq \
+        containrrr/watchtower \
+        r7wx/easy-gate \
+        lazyteam/lazydocker \
+        portainer/portainer-ce:latest \
+        xetusoss/archiva
+
 for container in $container_list;
 do
         docker pull $container &
