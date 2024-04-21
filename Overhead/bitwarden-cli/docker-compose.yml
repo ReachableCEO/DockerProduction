@@ -1,9 +1,0 @@
-version: "3"
-services:
-    dev:
-          image: "node:16.14-buster-slim"
-          user: "node"
-          working_dir: /home/node/dev
-          volumes:
-                  - /var/run/docker.sock:/var/run/docker.sock
-                  - /docker/storage/overhead/bw-cli:/home/node/dev
