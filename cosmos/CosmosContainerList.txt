@@ -1,3 +1,30 @@
+r7wx/easy-gate 
+
+
+mailpile
+mailman
+
+pihole/pihole
+
+
+elabftw/elabimg 
+huginn/huginn 
+phpipam/phpipam-www 
+killbill/killbill 
+killbill/kaui 
+inventree/inventree 
+beanbag/reviewboard:latest 
+rundeck/rundeck 
+librenms/librenms 
+graylog/graylog:5.1 
+
+xetusoss/archiva
+
+
+
+
+
+
 
 #git subtree add --prefix upstream/cloudflare-cfssl  https://github.com/rjrivero/docker-cfssl.git master --squash
 #git subtree add --prefix upstream/cloudflare-certmgr https://github.com/cloudflare/certmgr.git master --squash

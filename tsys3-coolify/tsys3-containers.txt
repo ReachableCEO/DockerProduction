@@ -1,2 +1,0 @@
-pihole/pihole
-woodpeckerci/woodpeckerci-agent 
