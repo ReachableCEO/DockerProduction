@@ -1,8 +1,6 @@
 # ConHost
 
-Docker compose files for everything running on tsys1,2,3.
-
-Each directory has the app/port mapping and a sub directory for each container (collection)
+Docker compose files for everything running on cosmos/coolify (that isn't from the marketplace)
 
 ## Repo issue
 https://projects.knownelement.com/project/reachableceo-vptechnicaloperations/timeline
