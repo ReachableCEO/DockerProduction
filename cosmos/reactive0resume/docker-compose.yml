@@ -4,12 +4,12 @@
 
 services:
   # Database (Postgres)
-  offstage-reactiveresume-postgres:
+  reactiveresume-postgres:
     image: postgres:16-alpine
     restart: unless-stopped
-    container_name: offstage-reactiveresume-postgres
+    container_name: reactiveresume-postgres
     volumes:
-      - offstage-reactiveresume-postgres_data:/var/lib/postgresql/data
+      - reactiveresume-postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -21,24 +21,24 @@ services:
       retries: 5
 
   # Storage (for image uploads)
-  offstage-reactiveresume-minio:
+  reactiveresume-minio:
     image: minio/minio
     restart: unless-stopped
-    container_name: offstage-reactiveresume-minio
+    container_name: reactiveresume-minio
     command: server /data
     ports:
-      - "9000:9000"
+      - "1000:9000"
     volumes:
-      - offstage-reactiveresume-minio_data:/data
+      - reactiveresume-minio_data:/data
     environment:
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: minioadmin
 
   # Chrome Browser (for printing and previews)
-  offstage-reactiveresume-chrome:
+  reactiveresume-chrome:
     image: ghcr.io/browserless/chromium:latest
     restart: unless-stopped
-    container_name: offstage-reactiveresume-chrome
+    container_name: reactiveresume-chrome
     environment:
       TIMEOUT: 10000
       CONCURRENT: 10
@@ -46,31 +46,31 @@ services:
       EXIT_ON_HEALTH_FAILURE: true
       PRE_REQUEST_HEALTH_CHECK: true
 
-  offstage-reactiveresume-app:
+  reactiveresume-app:
     image: amruthpillai/reactive-resume:latest
     restart: unless-stopped
-    container_name: offstage-reactiveresume-app
+    container_name: reactiveresume-app
     ports:
-      - "3000:3000"
+      - "1001:3000"
     depends_on:
-      - offstage-reactiveresume-postgres
-      - offstage-reactiveresume-minio
-      - offstage-reactiveresume-chrome
+      - reactiveresume-postgres
+      - reactiveresume-minio
+      - reactiveresume-chrome
     environment:
       # -- Environment Variables --
-      PORT: 3000
+      PORT: 1001
       NODE_ENV: production
 
       # -- URLs --
-      PUBLIC_URL: http://localhost:3000
-      STORAGE_URL: http://localhost:9000/default
+      PUBLIC_URL: http://localhost:1001
+      STORAGE_URL: http://localhost:1000/default
 
       # -- Printer (Chrome) --
       CHROME_TOKEN: chrome_token
-      CHROME_URL: ws://offstage-reactiveresume-chrome:3000
+      CHROME_URL: ws://reactiveresume-chrome:1001
 
       # -- Database (Postgres) --
-      DATABASE_URL: postgresql://postgres:postgres@offstage-reactiveresume-postgres:5432/postgres
+      DATABASE_URL: postgresql://postgres:postgres@reactiveresume-postgres:5432/postgres
 
       # -- Auth --
       ACCESS_TOKEN_SECRET: access_token_secret
@@ -81,8 +81,8 @@ services:
       # SMTP_URL: smtp://user:pass@smtp:587 # Optional
 
       # -- Storage (Minio) --
-      STORAGE_ENDPOINT: offstage-reactiveresume-minio
-      STORAGE_PORT: 9000
+      STORAGE_ENDPOINT: reactiveresume-minio
+      STORAGE_PORT: 1000
       STORAGE_REGION: us-east-1 # Optional
       STORAGE_BUCKET: default
       STORAGE_ACCESS_KEY: minioadmin
@@ -109,5 +109,5 @@ services:
       # GOOGLE_CALLBACK_URL: http://localhost:3000/api/auth/google/callback
 
 volumes:
-  offstage-reactiveresume-minio_data:
-  offstage-reactiveresume-postgres_data:
+  reactiveresume-minio_data:
+  reactiveresume-postgres_data:
