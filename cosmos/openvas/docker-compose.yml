@@ -1,0 +1,11 @@
+#openvas docker compose for tsys
+
+#git subtree add --prefix upstream/openvas https://github.com/mikesplain/openvas-docker.git  master --squash
+
+#        greenbone/vulnerability-tests \
+#        greenbone/notus-data \
+#        greenbone/scap-data \
+#        securecompliance/gvm:debian-master-data-full \
+#        securecompliance/gvm:debian-master-data \
+#        securecompliance/gvm:debian-master-full \
+#        securecompliance/gvm:debian-master \

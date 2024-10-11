@@ -1,0 +1,4 @@
+#wazuh docker compose for tsys
+
+
+#git subtree add --prefix upstream/wazuh https://github.com/wazuh/wazuh-docker.git master --squash
