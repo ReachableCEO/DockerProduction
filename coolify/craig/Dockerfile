@@ -1,0 +1,1 @@
+#Craig recording bot docker file for tsys 
