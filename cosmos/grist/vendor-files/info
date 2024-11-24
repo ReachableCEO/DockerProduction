@@ -1,0 +1,1 @@
+This directory contains files from the vendor unmodified. They serve as a base for the input-files sibling directory
