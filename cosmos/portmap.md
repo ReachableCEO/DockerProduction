@@ -55,3 +55,4 @@
 | voiceapps       | 1050        |       |
 | warp            | 1051        |       |
 | wazuh           | 1052        |       |
+| apigw           | 1053        |       |
