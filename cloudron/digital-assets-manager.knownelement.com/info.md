@@ -1,3 +1,5 @@
 lamp app
 
-https://www.resourcespace.com/knowledge-base/systemadmin/install_overview
+https://github.com/pimcore/pimcore
+
+Covers MDM/PIM/DAM all in one. We need the full feature suite. 
