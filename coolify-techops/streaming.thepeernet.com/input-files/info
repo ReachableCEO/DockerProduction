@@ -1,0 +1,2 @@
+This directory contains template files for the application at FQDN indidicated by the parent directory. They will be processed using mo (bash mustache).
+
