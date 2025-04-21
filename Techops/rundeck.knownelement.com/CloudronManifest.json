@@ -1,0 +1,53 @@
+{
+  "id": "com.rundeck.cloudron",
+  "title": "Rundeck",
+  "author": "Rundeck, Inc.",
+  "description": "Job scheduler and runbook automation for teams. Rundeck enables self-service operations with policy-based access control, audit trail, and integrations with your existing tools.",
+  "tagline": "Job scheduling and runbook automation",
+  "version": "1.0.0",
+  "healthCheckPath": "/api/40/system/info",
+  "httpPort": 8080,
+  "manifestVersion": 2,
+  "website": "https://www.rundeck.com/",
+  "contactEmail": "support@rundeck.com",
+  "icon": "file://logo.png",
+  "addons": {
+    "localstorage": {},
+    "postgresql": {
+      "version": "14"
+    }
+  },
+  "tags": [
+    "automation",
+    "devops",
+    "scheduler",
+    "workflow"
+  ],
+  "minBoxVersion": "7.4.0",
+  "memoryLimit": 1024,
+  "documentationUrl": "https://docs.rundeck.com/",
+  "postInstallMessage": "Rundeck has been installed. The initial admin credentials are:\nUsername: admin\nPassword: {{ .password }}\n\nPlease change this password immediately after login.",
+  "startCommand": "/app/code/start.sh",
+  "configurePath": "/login",
+  "mediaLinks": [],
+  "changelog": [
+    {
+      "versionCode": 1,
+      "version": "1.0.0",
+      "releaseDate": "2025-04-21",
+      "changes": [
+        "Initial release of Rundeck for Cloudron"
+      ]
+    }
+  ],
+  "forumUrl": "https://github.com/cloudron-io/cloudron-app/issues",
+  "features": {
+    "ldap": true,
+    "oauth": {
+      "callback": "/user/oidclogin",
+      "clientId": "{{ cloudron.oauth.clientId }}",
+      "clientSecret": "{{ cloudron.oauth.clientSecret }}",
+      "scope": "profile email"
+    }
+  }
+}
