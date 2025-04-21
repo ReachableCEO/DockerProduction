@@ -1,0 +1,74 @@
+# InvenTree Cloudron Build Notes
+
+## Package Contents
+- CloudronManifest.json - App metadata and resource configuration
+- Dockerfile - Container build instructions
+- start.sh - App initialization and startup script
+- config.yaml - InvenTree configuration template
+- nginx.conf - Web server configuration
+- supervisord.conf - Process management configuration
+
+## Build & Deploy Steps
+
+### 1. Prepare Local Directory
+```bash
+mkdir -p inventree-cloudron
+cd inventree-cloudron
+# Copy all files into this directory
+```
+
+### 2. Build & Push to Gitea Registry
+```bash
+# Login to your Gitea Docker registry
+docker login gitea.yourdomain.com
+
+# Build the Docker image
+docker build -t gitea.yourdomain.com/yourusername/inventree:1.0.0 .
+
+# Push the image to your registry
+docker push gitea.yourdomain.com/yourusername/inventree:1.0.0
+```
+
+### 3. Install on Cloudron
+```bash
+# Login to your Cloudron
+cloudron login my.cloudron.example
+
+# Install the app
+cloudron install --image gitea.yourdomain.com/yourusername/inventree:1.0.0
+```
+
+### 4. Update Process
+```bash
+# Build with new version tag
+docker build -t gitea.yourdomain.com/yourusername/inventree:1.0.1 .
+docker push gitea.yourdomain.com/yourusername/inventree:1.0.1
+
+# Update existing installation
+cloudron update --app inventree.my.cloudron.example --image gitea.yourdomain.com/yourusername/inventree:1.0.1
+```
+
+## Troubleshooting
+
+### Database Issues
+If database migrations fail:
+```bash
+cloudron exec --app inventree.my.cloudron.example -- /app/code/env/bin/python /app/code/inventree/manage.py migrate
+```
+
+### Inspect Logs
+```bash
+cloudron logs --app inventree.my.cloudron.example
+```
+
+### Debug Mode
+```bash
+cloudron debug --app inventree.my.cloudron.example
+```
+
+## Initial Access
+After installation, access InvenTree at your configured domain with:
+- Username: admin
+- Password: admin
+
+**Important**: Change this password immediately after first login!
