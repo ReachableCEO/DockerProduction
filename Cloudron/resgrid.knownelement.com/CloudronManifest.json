@@ -1,0 +1,62 @@
+{
+  "id": "com.resgrid.cloudron",
+  "version": "1.0.0",
+  "author": "Your Name <your.email@example.com>",
+  "title": "Resgrid",
+  "description": "Open Source Computer Aided Dispatch (CAD), Personnel, Shift Management, Automatic Vehicle Location (AVL) and Emergency Management Platform",
+  "tagline": "Dispatch solution for first responders, business and industry",
+  "website": "https://resgrid.com/",
+  "contactEmail": "your.email@example.com",
+  "icon": "/logo.png",
+  "tags": [
+    "dispatch",
+    "emergency",
+    "management",
+    "first-responders"
+  ],
+  "httpPort": 8000,
+  "manifestVersion": 2,
+  "healthCheckPath": "/",
+  "memoryLimit": 1024,
+  "documentationUrl": "https://resgrid-core.readthedocs.io/en/latest/",
+  "addons": {
+    "localstorage": {},
+    "redis": {},
+    "postgresql": {},
+    "sendmail": {}
+  },
+  "tcpPorts": {
+    "rabbitmq": {
+      "title": "RabbitMQ",
+      "description": "Port for RabbitMQ message queue service",
+      "containerPort": 5672
+    }
+  },
+  "postInstallMessage": "Resgrid has been successfully installed. The default administrator account is 'admin' with password 'changeme'. Please change this password immediately after the first login.",
+  "minBoxVersion": "5.4.0",
+  "forwardedPorts": [],
+  "configurePath": "/settings",
+  "env": {
+    "RESGRID_CLOUDRON": "true",
+    "RESGRID_DB_TYPE": "postgresql",
+    "POSTGRES_HOST": "{{ postgresql.host }}",
+    "POSTGRES_PORT": "{{ postgresql.port }}",
+    "POSTGRES_USERNAME": "{{ postgresql.username }}",
+    "POSTGRES_PASSWORD": "{{ postgresql.password }}",
+    "POSTGRES_DATABASE": "{{ postgresql.database }}",
+    "REDIS_HOST": "{{ redis.host }}",
+    "REDIS_PORT": "{{ redis.port }}",
+    "REDIS_PASSWORD": "{{ redis.password }}",
+    "CLOUDRON_APP_DOMAIN": "{{ appDomain }}",
+    "CLOUDRON_MAIL_SMTP_SERVER": "{{ mail.smtp.hostname }}",
+    "CLOUDRON_MAIL_SMTP_PORT": "{{ mail.smtp.port }}",
+    "CLOUDRON_MAIL_SMTP_USERNAME": "{{ mail.smtp.username }}",
+    "CLOUDRON_MAIL_SMTP_PASSWORD": "{{ mail.smtp.password }}",
+    "CLOUDRON_MAIL_FROM": "{{ mail.from }}",
+    "CLOUDRON_OIDC_IDENTIFIER": "{{ oauth.clientId }}",
+    "CLOUDRON_OIDC_CLIENT_ID": "{{ oauth.clientId }}",
+    "CLOUDRON_OIDC_CLIENT_SECRET": "{{ oauth.clientSecret }}",
+    "CLOUDRON_OIDC_ISSUER": "{{ oauth.issuer }}",
+    "CLOUDRON_OIDC_ORIGIN": "{{ origin }}"
+  }
+}
