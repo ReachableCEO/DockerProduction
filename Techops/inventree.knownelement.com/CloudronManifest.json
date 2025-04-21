@@ -1,0 +1,24 @@
+{
+  "id": "org.inventree.cloudronapp",
+  "title": "InvenTree",
+  "author": "Your Name",
+  "description": "InvenTree is an open-source inventory management system which provides intuitive parts management and stock control.",
+  "tagline": "Open Source Inventory Management System",
+  "version": "1.0.0",
+  "healthCheckPath": "/",
+  "httpPort": 8000,
+  "manifestVersion": 2,
+  "website": "https://inventree.org",
+  "contactEmail": "your.email@example.com",
+  "icon": "logo.png",
+  "documentationUrl": "https://docs.inventree.org",
+  "memoryLimit": 1024000000,
+  "configurePath": "/admin",
+  "minBoxVersion": "7.0.0",
+  "changelog": "Initial version",
+  "addons": {
+    "localstorage": {},
+    "postgresql": {}
+  },
+  "postInstallMessage": "InvenTree has been installed. The default admin credentials are:\n\nUsername: admin\nPassword: admin\n\nPlease change the admin password after your first login."
+}
