@@ -1,0 +1,30 @@
+{
+  "id": "org.elabftw.cloudron",
+  "title": "eLabFTW",
+  "author": "Nicolas CARPi",
+  "description": "Electronic laboratory notebook to track experiments, manage protocols, store laboratory inventory, communicate with others and more. Your best lab companion.",
+  "tagline": "Electronic lab notebook for researchers",
+  "version": "1.0.0",
+  "healthCheckPath": "/",
+  "httpPort": 8000,
+  "addons": {
+    "mysql": {},
+    "localstorage": {}
+  },
+  "manifestVersion": 2,
+  "website": "https://www.elabftw.net",
+  "contactEmail": "support@example.com",
+  "icon": "file://logo.png",
+  "memoryLimit": 1024,
+  "tags": ["science", "lab", "research", "notebook", "eln"],
+  "minBoxVersion": "7.4.0",
+  "postInstallMessage": "eLabFTW has been successfully installed! You will need to create a Sysadmin account when you first access the application.",
+  "documentationUrl": "https://doc.elabftw.net/",
+  "forwardedHeaders": ["X-Forwarded-For", "X-Forwarded-Proto", "X-Forwarded-Host"],
+  "tcpPorts": {},
+  "optionalSso": {
+    "ldap": {
+      "enabled": true
+    }
+  }
+}
