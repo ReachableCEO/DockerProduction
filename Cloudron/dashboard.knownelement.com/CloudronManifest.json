@@ -1,0 +1,30 @@
+{
+  "id": "com.easygate.cloudron",
+  "title": "Easy-gate",
+  "author": "r7wx",
+  "description": "A simple web application designed to serve as the central hub for your self-hosted infrastructure. Easy-gate provides real-time parsing of services and notes from a configuration file.",
+  "tagline": "A gate to your self-hosted infrastructure",
+  "version": "1.0.0",
+  "healthCheckPath": "/",
+  "httpPort": 8080,
+  "addons": {
+    "localstorage": {}
+  },
+  "manifestVersion": 2,
+  "website": "https://github.com/r7wx/easy-gate",
+  "contactEmail": "support@cloudron.io",
+  "icon": "logo.png",
+  "tags": [
+    "dashboard", 
+    "infrastructure",
+    "services",
+    "homepage"
+  ],
+  "env": {
+    "EASY_GATE_CONFIG": "/app/data/easy-gate.json",
+    "EASY_GATE_ROOT_PATH": "/app/data"
+  },
+  "configurePath": "/",
+  "minBoxVersion": "7.0.0",
+  "postInstallMessage": "Easy-gate has been successfully installed. You can now configure your services in the /app/data/easy-gate.json file. By default, Easy-gate runs behind Cloudron's proxy (EASY_GATE_BEHIND_PROXY=true). More configuration options available at https://github.com/r7wx/easy-gate"
+}

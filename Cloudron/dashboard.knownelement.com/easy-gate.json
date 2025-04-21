@@ -1,0 +1,69 @@
+{
+  "title": "My Self-Hosted Infrastructure",
+  "theme": {
+    "background": "#f8f9fa",
+    "foreground": "#212529",
+    "custom_css": ""
+  },
+  "groups": [
+    {
+      "name": "internal",
+      "subnet": "192.168.1.1/24"
+    },
+    {
+      "name": "admin",
+      "subnet": "10.8.0.1/24"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Applications",
+      "services": [
+        {
+          "name": "Cloudron",
+          "url": "https://my.example.com",
+          "description": "My Cloudron Dashboard",
+          "icon": "",
+          "groups": []
+        }
+      ]
+    },
+    {
+      "name": "Media",
+      "services": [
+        {
+          "name": "Jellyfin",
+          "url": "https://jellyfin.example.com",
+          "description": "Media Server",
+          "icon": "",
+          "groups": []
+        }
+      ]
+    },
+    {
+      "name": "Monitoring",
+      "services": [
+        {
+          "name": "Grafana",
+          "url": "https://grafana.example.com",
+          "description": "Monitoring Dashboard",
+          "icon": "",
+          "groups": ["admin"]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "name": "Welcome to Easy-gate",
+      "text": "This is your new Easy-gate dashboard. Edit this configuration file to customize your services and notes.",
+      "groups": []
+    },
+    {
+      "name": "For Administrators",
+      "text": "Admin-only information can be seen here when connecting from the admin subnet.",
+      "groups": ["admin"]
+    }
+  ],
+  "behind_proxy": true
+}
