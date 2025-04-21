@@ -1,0 +1,15 @@
+production:
+  enabled: true
+  host: <%= ENV['LDAP_HOST'] %>
+  port: <%= ENV['LDAP_PORT'] %>
+  ssl: true
+  admin_user: <%= ENV['LDAP_ADMIN_USER'] %>
+  admin_password: <%= ENV['LDAP_ADMIN_PASSWORD'] %>
+  base: <%= ENV['LDAP_BASE'] %>
+  user_filter: "(uid=%{username})"
+  group_base: <%= ENV['CLOUDRON_LDAP_GROUPS_BASE_DN'] %>
+  required_groups:
+    - <%= ENV['CLOUDRON_LDAP_GROUPS_BASE_DN'] %>
+  attribute_mapping:
+    email: mail
+    name: displayName

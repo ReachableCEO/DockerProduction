@@ -1,0 +1,44 @@
+{
+  "id": "net.consuldemocracy.cloudron",
+  "title": "Consul Democracy",
+  "author": "Consul Democracy Community",
+  "description": "Open Government and E-Participation Web Software",
+  "tagline": "The most comprehensive citizen participation platform",
+  "version": "1.0.0",
+  "healthCheckPath": "/",
+  "httpPort": 8000,
+  "addons": {
+    "localstorage": {},
+    "postgresql": {
+      "version": "14"
+    },
+    "ldap": {},
+    "sendmail": {}
+  },
+  "manifestVersion": 2,
+  "website": "https://consuldemocracy.org",
+  "contactEmail": "info@consuldemocracy.org",
+  "icon": "file://logo.png",
+  "tags": [
+    "democracy",
+    "participation",
+    "open-government",
+    "rails"
+  ],
+  "dockerImage": "{origin}/consuldemocracy",
+  "memoryLimit": 1024,
+  "documentationUrl": "https://docs.consuldemocracy.org/",
+  "forumUrl": "https://github.com/consuldemocracy/consuldemocracy/discussions",
+  "minBoxVersion": "7.0.0",
+  "mediaLinks": [],
+  "changelog": "Initial version",
+  "postInstallMessage": "Consul Democracy has been successfully installed! The default administrator credentials are:\n\nUsername: admin@example.org\nPassword: password\n\nPlease login and change these immediately.",
+  "configurePath": "/admin",
+  "backup": {
+    "backupScriptPath": "/app/code/backup.sh"
+  },
+  "sso": {
+    "loginPath": "/users/sign_in",
+    "callbackPath": "/oauth/callback"
+  }
+}
