@@ -1,0 +1,40 @@
+{
+  "id": "io.jenkins.cloudron",
+  "title": "Jenkins",
+  "author": "Cloudron Packager",
+  "description": "Jenkins is an open source automation server which enables developers to reliably build, test, and deploy their software.",
+  "tagline": "The leading open source automation server",
+  "version": "1.0.0",
+  "healthCheckPath": "/login",
+  "httpPort": 8080,
+  "manifestVersion": 2,
+  "website": "https://jenkins.io/",
+  "contactEmail": "support@cloudron.io",
+  "icon": "file://logo.png",
+  "dockerImage": "cloudron/jenkins",
+  "memoryLimit": 2048000000,
+  "addons": {
+    "localstorage": {
+      "title": "Jenkins Data"
+    }
+  },
+  "optionalAddons": {
+    "ldap": {
+      "title": "LDAP Integration",
+      "description": "Allow users to login with LDAP credentials"
+    },
+    "oauth": {
+      "title": "OAuth Integration", 
+      "description": "Allow users to login with Cloudron credentials"
+    }
+  },
+  "tags": [
+    "ci",
+    "cd",
+    "devops",
+    "automation"
+  ],
+  "postInstallMessage": "Jenkins is now installed. The initial admin password is shown in the logs. You can view it by running 'cloudron logs -f'. The password is displayed after 'Jenkins initial setup is required.' in the logs.",
+  "minBoxVersion": "5.4.0",
+  "documentationUrl": "https://jenkins.io/doc/"
+}
