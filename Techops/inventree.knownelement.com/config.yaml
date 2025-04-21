@@ -1,0 +1,49 @@
+# InvenTree configuration file for Cloudron
+# Refer to InvenTree documentation for detailed configuration options
+
+# Database connection settings will be provided via environment variables
+
+# General settings
+debug: False
+log_level: WARNING
+
+# Secret key will be stored in a file
+secret_key_file: /app/data/secret_key.txt
+
+# Plugin settings
+plugins:
+  enabled: True
+  plugin_dir: /app/data/plugins
+
+# File storage locations
+media_root: /app/data/media
+static_root: /app/data/static
+
+# Email settings - adjust with your Cloudron email settings if needed
+email:
+  host: localhost
+  port: 25
+  tls: false
+  ssl: false
+  sender: inventree@localhost
+
+# Login settings
+login:
+  default_protocol: https
+  allow_unverified_signup: False
+  allow_signup: True
+  signup_email_verification: False
+  login_confirm_days: 3
+  password_reset_timeout_days: 3
+
+# Display settings
+customization:
+  instance_name: InvenTree
+  default_currency: USD
+  base_url: ""  # Will be set by environment variable in start.sh
+
+# Server settings
+server:
+  workers: 2
+  allowed_hosts:
+    - '*'  # Cloudron handles this
