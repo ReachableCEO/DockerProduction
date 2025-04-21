@@ -1,0 +1,26 @@
+jenkins:
+  systemMessage: "Jenkins configured with local authentication"
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: "admin"
+          password: "adminpass"
+          
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+        - "Job/Read:authenticated"
+        - "Job/Build:authenticated"
+        - "Job/Create:authenticated"
+        - "Job/Configure:authenticated"
+        - "View/Read:authenticated"
+        - "View/Create:authenticated"
+        - "View/Configure:authenticated"
+
+unclassified:
+  location:
+    url: "${JENKINS_URL}"

@@ -1,0 +1,32 @@
+jenkins:
+  systemMessage: "Jenkins configured with Cloudron LDAP authentication"
+  securityRealm:
+    ldap:
+      configurations:
+        - server: "${CLOUDRON_LDAP_SERVER}"
+          rootDN: "${CLOUDRON_LDAP_USERS_BASE_DN}"
+          managerDN: "${CLOUDRON_LDAP_BIND_DN}"
+          managerPasswordSecret: "${CLOUDRON_LDAP_BIND_PASSWORD}"
+          userSearchBase: ""
+          userSearch: "uid={0}"
+          groupSearchBase: "${CLOUDRON_LDAP_GROUPS_BASE_DN}"
+          groupSearchFilter: "memberUid={0}"
+          displayNameAttributeName: "displayName"
+          mailAddressAttributeName: "mail"
+          
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+        - "Job/Read:authenticated"
+        - "Job/Build:authenticated"
+        - "Job/Create:authenticated"
+        - "Job/Configure:authenticated"
+        - "View/Read:authenticated"
+        - "View/Create:authenticated"
+        - "View/Configure:authenticated"
+
+unclassified:
+  location:
+    url: "${JENKINS_URL}"

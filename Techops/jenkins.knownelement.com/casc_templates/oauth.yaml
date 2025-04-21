@@ -1,0 +1,35 @@
+jenkins:
+  systemMessage: "Jenkins configured with Cloudron OpenID Connect authentication"
+  securityRealm:
+    oic:
+      clientId: "${CLOUDRON_OAUTH_CLIENT_ID}"
+      clientSecret: "${CLOUDRON_OAUTH_CLIENT_SECRET}"
+      wellKnownOpenIDConfigurationUrl: "${CLOUDRON_OAUTH_ORIGIN}/.well-known/openid-configuration"
+      userNameField: "preferred_username"
+      tokenAuthMethod: "client_secret_basic"
+      scopes: "openid email profile groups"
+      fullNameFieldName: "name"
+      emailFieldName: "email"
+      groupsFieldName: "groups"
+      pkceEnabled: true
+      escapeHatchEnabled: true
+      escapeHatchUsername: "admin"
+      escapeHatchSecret: "adminpass"
+      escapeHatchGroup: "admin"
+  
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+        - "Job/Read:authenticated"
+        - "Job/Build:authenticated"
+        - "Job/Create:authenticated"
+        - "Job/Configure:authenticated"
+        - "View/Read:authenticated"
+        - "View/Create:authenticated"
+        - "View/Configure:authenticated"
+
+unclassified:
+  location:
+    url: "${JENKINS_URL}"
