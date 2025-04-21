@@ -1,0 +1,43 @@
+{
+  "id": "org.reviewboard.cloudron",
+  "title": "ReviewBoard",
+  "author": "Beanbag, Inc.",
+  "description": "ReviewBoard is a web-based code review tool that helps projects and companies keep their code quality high and their bug count low.",
+  "tagline": "A powerful web-based code review tool",
+  "version": "1.0.0",
+  "healthCheckPath": "/",
+  "httpPort": 8000,
+  "manifestVersion": 2,
+  "website": "https://www.reviewboard.org",
+  "documentationUrl": "https://www.reviewboard.org/docs/",
+  "contactEmail": "support@cloudron.io",
+  "icon": "file://logo.png",
+  "tags": [
+    "developer",
+    "code-review",
+    "collaboration"
+  ],
+  "memoryLimit": 768,
+  "addons": {
+    "localstorage": {},
+    "postgresql": {
+      "version": "14"
+    },
+    "oidc": {
+      "loginRedirectUri": "/api/v1/session/callback",
+      "logoutRedirectUri": "/home",
+      "tokenSignatureAlgorithm": "RS256"
+    }
+  },
+  "minBoxVersion": "7.0.0",
+  "postInstallMessage": "The initial admin account is created automatically using your Cloudron credentials. Please open the app to complete the setup process.",
+  "installationProgress": {
+    "message": "Installing ReviewBoard. This might take a few minutes...",
+    "steps": [
+      { "id": "download", "title": "Downloading" },
+      { "id": "install", "title": "Installing Dependencies" },
+      { "id": "setup", "title": "Setting up ReviewBoard" },
+      { "id": "configure", "title": "Configuring for Cloudron" }
+    ]
+  }
+}
