@@ -1,0 +1,46 @@
+{
+  "id": "com.getgrist.cloudron",
+  "title": "Grist",
+  "author": "Grist Labs",
+  "description": "A modern, open source spreadsheet that goes beyond the grid. Grist combines the flexibility of a spreadsheet with the robustness of a database to organize your data your way.",
+  "tagline": "Modern relational spreadsheet with Python formulas",
+  "version": "1.0.0",
+  "healthCheckPath": "/healthz",
+  "httpPort": 8080,
+  "addons": {
+    "localstorage": {},
+    "postgresql": {
+      "userName": "grist",
+      "databaseName": "grist"
+    }
+  },
+  "manifestVersion": 2,
+  "website": "https://www.getgrist.com/",
+  "documentationUrl": "https://support.getgrist.com/",
+  "contactEmail": "support@getgrist.com",
+  "icon": "file://logo.png",
+  "memoryLimit": 1024,
+  "tags": ["spreadsheet", "database", "python", "dashboard"],
+  "minBoxVersion": "7.0.0",
+  "installationNotes": {
+    "en": "The default administrator account is set to your Cloudron email. Access Grist at the configured subdomain."
+  },
+  "postInstallationNotes": {
+    "en": "Grist has been successfully installed. The administrator account is set to your Cloudron email. Sign in using your Cloudron account credentials."
+  },
+  "forumUrl": "https://community.getgrist.com/",
+  "mediaLinks": [
+    "https://www.getgrist.com/assets/images/grist-demo.png"
+  ],
+  "authentication": {
+    "loginPath": "/auth/login",
+    "logoutPath": "/auth/logout",
+    "impl": "oauth",
+    "oauth": {
+      "clientId": "{{cloudronOAuthClientId}}",
+      "clientSecret": "{{cloudronOAuthClientSecret}}",
+      "callbackPath": "/oauth2/callback",
+      "scope": "profile email"
+    }
+  }
+}
