@@ -1,3 +1,3 @@
 # Homechart
 
-- https://projects.knownelement.com/issues/193
+- https://projects.knownelement.com/issues/284
