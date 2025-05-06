@@ -1,1 +1,0 @@
-We need an SSH portal. Use xterm.js to find solutions. 
