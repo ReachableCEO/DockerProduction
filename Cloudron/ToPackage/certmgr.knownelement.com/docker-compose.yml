@@ -1,3 +1,0 @@
-#certmgr docker compose for tsys
-
-#git subtree add --prefix upstream/cloudflare-certmgr https://github.com/cloudflare/certmgr.git master --squash
