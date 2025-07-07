@@ -173,7 +173,26 @@ https://github.com/opulo-inc/autobom.git
 #https://projects.knownelement.com/issues/279
 https://github.com/PLMore/PLMore
 
+#https://projects.knownelement.com/issues/282
+https://github.com/manyfold3d/manyfold.git
 
+#https://projects.knownelement.com/issues/283
+https://github.com/langfuse/oss-llmops-stack.git
+
+#https://projects.knownelement.com/issues/286
+https://github.com/HeyPuter/puter.git
+
+#https://projects.knownelement.com/issues/285
+https://github.com/windmill-labs/windmill.git
+
+#https://projects.knownelement.com/issues/326
+https://github.com/sbabic/swupdate.git
+
+#https://projects.knownelement.com/issues/300
+https://github.com/mendersoftware/mender-server.git
+
+#https://projects.knownelement.com/issues/50
+https://github.com/vanila-io/wireflow.git
 
 )
 
