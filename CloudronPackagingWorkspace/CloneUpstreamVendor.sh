@@ -38,6 +38,9 @@ GIT_REPO_LIST=(
 #https://projects.knownelement.com/issues/179
 https://github.com/apache/apisix.git
 
+#https://projects.knownelement.com/issues/204
+https://github.com/target/goalert.git
+
 #https://projects.knownelement.com/issues/189
 https://github.com/consuldemocracy/consuldemocracy.git
 
@@ -193,6 +196,9 @@ https://github.com/mendersoftware/mender-server.git
 
 #https://projects.knownelement.com/issues/50
 https://github.com/vanila-io/wireflow.git
+
+#https://projects.knownelement.com/issues/226
+https://github.com/nautechsystems/nautilus_trader.git
 
 )
 

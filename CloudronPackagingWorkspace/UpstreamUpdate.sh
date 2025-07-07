@@ -34,8 +34,11 @@ GIT_REPO_LIST="$(ls -d */)"
 
 IFS=$'\n\t'
 
-for GIT_REPO in ${GIT_REPO_LIST[@]};do
-  cd $GIT_REPO
+for GIT_REPO in ${GIT_REPO_LIST[@]};
+do
+  CURRENT_DIR=$(realpath $PWD)
+  echo "Updating from $GIT_REPO..."
+  cd $GIT_REPO 
   git pull
-  cd -
+  cd $CURRENT_DIR
 done
