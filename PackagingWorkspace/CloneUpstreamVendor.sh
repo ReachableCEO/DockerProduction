@@ -31,6 +31,10 @@ set -o functrace
 export GIT_REPO_LIST
 GIT_REPO_LIST=(
 
+####################
+# Vp techops stuff
+####################
+
 #https://projects.knownelement.com/issues/179
 https://github.com/apache/apisix.git
 
@@ -103,6 +107,72 @@ https://github.com/apache/seatunnel
 
 #https://projects.knownelement.com/issues/271
 https://github.com/thecatlady/docker-webhook
+
+####################
+# CTO Stuff
+####################
+
+#https://projects.knownelement.com/issues/173
+https://github.com/inventree/InvenTree.git
+
+#https://projects.knownelement.com/issues/180
+https://github.com/Cloud-RF/tak-server
+
+#https://projects.knownelement.com/issues/178
+https://github.com/midday-ai/midday.git
+
+#https://projects.knownelement.com/issues/181
+https://github.com/killbill/killbill.git
+
+#https://projects.knownelement.com/issues/184
+https://github.com/chirpstack/chirpstack.git
+
+#https://projects.knownelement.com/issues/185
+https://github.com/CraigChat/craig.git
+
+#https://projects.knownelement.com/issues/188
+https://github.com/elabftw/elabftw.git
+
+#https://projects.knownelement.com/issues/196
+https://github.com/jamovi/jamovi.git
+
+#https://projects.knownelement.com/issues/197
+https://github.com/INTI-CMNB/KiBot.git
+
+#https://projects.knownelement.com/issues/214
+https://github.com/Resgrid/Core
+
+#https://projects.knownelement.com/issues/216
+https://github.com/reviewboard/reviewboard.git
+
+#https://projects.knownelement.com/issues/218
+https://gitlab.com/librespacefoundation/satnogs/docker-kaitai.git
+https://gitlab.com/librespacefoundation/satnogs/docker-satnogs-webgui.git
+
+#https://projects.knownelement.com/issues/219
+https://github.com/f4exb/sdrangel-docker
+
+#https://projects.knownelement.com/issues/221
+https://github.com/SigNoz/signoz.git
+
+#https://projects.knownelement.com/issues/228
+https://github.com/sebo-b/warp.git
+
+#https://projects.knownelement.com/issues/272
+https://github.com/jgraph/docker-drawio
+
+#https://projects.knownelement.com/issues/274
+https://github.com/openblocks-dev/openblocks.git
+
+#https://projects.knownelement.com/issues/276
+https://github.com/wireviz/wireviz-web.git
+
+#https://projects.knownelement.com/issues/278
+https://github.com/opulo-inc/autobom.git
+
+#https://projects.knownelement.com/issues/279
+https://github.com/PLMore/PLMore
+
 
 
 )
