@@ -3,10 +3,10 @@
 ## 📊 Progress Overview
 
 - **Total Applications**: 56 identified in workspace
-- **Completed**: 2 (EasyGate ✅, Rathole ✅)
-- **In Progress**: 2 (InvenTree 🚧, APISIX 🚧)
-- **Remaining**: 52
-- **Completion Rate**: 3.57%
+- **Completed**: 3 (EasyGate ✅, Rathole ✅, InvenTree ✅)
+- **In Progress**: 1 (APISIX 🚧)
+- **Remaining**: 51
+- **Completion Rate**: 5.36%
 
 ---
 
@@ -29,7 +29,7 @@
 
 | Application | Status | Priority | Complexity | Est. Hours | Notes |
 |------------|--------|----------|------------|------------|--------|
-| InvenTree | 🚧 | MEDIUM | High | 8-12 | Inventory Management - In progress |
+| InvenTree | ✅ | MEDIUM | High | 8-12 | Inventory Management - Completed |
 | ElabFTW | ⏳ | MEDIUM | Medium | 6-8 | Laboratory Management |
 | Database Gateway | ⏳ | MEDIUM | Low | 2-4 | Database proxy |
 | NetBox | ⏳ | MEDIUM | High | 8-12 | Network documentation |
@@ -108,6 +108,7 @@
 |------------|----------------|--------|------------------|
 | Easy Gate | 2025-01-04 | Simple dashboard gateway | `CloudronPackages/EasyGate/` |
 | Rathole | 2025-09-04 | Secure NAT traversal reverse proxy | `CloudronPackages/Rathole/` |
+| InvenTree | 2025-09-04 | Open Source Inventory Management System | `CloudronPackages/Inventree/` |
 
 ---
 
@@ -115,7 +116,6 @@
 
 ### Currently Assigned
 - **APISIX** 🚧 → In Progress (API Gateway)
-- **InvenTree** 🚧 → In Progress (Inventory Management)
 
 ### Next Up (Priority Queue)
 1. **Jenkins** → CI/CD Pipeline
@@ -151,7 +151,7 @@
 
 ### Week of 2025-01-06
 - [ ] Complete APISIX package
-- [ ] Finish InvenTree package
+- [x] Finish InvenTree package
 - [ ] Start Jenkins package
 - [x] Update documentation
 
