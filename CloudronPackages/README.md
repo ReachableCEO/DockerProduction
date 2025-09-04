@@ -67,7 +67,7 @@ docker logs [container-id]
 2. **Testing**: Build and validate package functionality
 3. **Finalization**: Move completed package to `CloudronPackages/[AppName]/`
 4. **Documentation**: Ensure all required files and build notes are complete
-5. **Git Workflow**: Commit via feature branch → integration → master
+5. **Git Workflow**: Commit via feature branch → integration → main
 
 ### Quality Standards
 All packages in this directory must meet:

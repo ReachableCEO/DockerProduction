@@ -2,40 +2,48 @@
 
 ## 🌿 Branch Strategy
 
-### Branch Hierarchy
+### Branch Hierarchy & Workflow Pattern
 ```
-master (production-ready packages)
-  ↑ merge after validation
+main (production-ready packages)
+  ↑ PR (requires YOUR approval)
 integration (staging for multiple packages)  
-  ↑ merge after individual testing
+  ↑ merge feature branch directly (no PR needed)
 feature/package-[appname] (individual development)
-  ↑ create from master
+  ↑ create from integration
 ```
+
+**One Package = One Branch Pattern**:
+1. Create `feature/package-[appname]` from `integration`
+2. Develop complete package in feature branch  
+3. Merge feature branch to `integration` (direct merge)
+4. When multiple packages ready, create PR `integration` → `main` (requires your approval)
 
 ### Branch Purposes
 
-#### `master` - Production Branch
+#### `main` - Production Branch
 - **Purpose**: Stable, tested, production-ready packages
-- **Protection**: All commits must come via pull request from `integration`
-- **Quality Gate**: Packages must be fully tested and validated
-- **Release Cadence**: Weekly merges from integration after validation
+- **Protection**: ALL commits must come via Pull Request from `integration`
+- **Approval Required**: Project maintainer approval mandatory
+- **Quality Gate**: Full validation and approval before merge
+- **Branch Protection**: Direct pushes blocked, PR reviews required
 
 #### `integration` - Staging Branch  
-- **Purpose**: Integration testing of multiple packages together
-- **Source**: Merges from individual `feature/package-*` branches
-- **Testing**: Cross-package compatibility and integration testing
-- **Duration**: Packages stay here for 1-3 days for validation
+- **Purpose**: Collection point for completed packages before production
+- **Source**: Direct merges from individual `feature/package-*` branches (no PR needed)
+- **Protection**: Open for direct pushes from feature branches
+- **Testing**: Integration testing and cross-package validation
+- **Duration**: Accumulates packages until batch ready for production release
 
 #### `feature/package-[appname]` - Development Branches
 - **Purpose**: Individual application packaging development
 - **Naming**: `feature/package-jenkins`, `feature/package-apisix`, etc.
-- **Lifespan**: Created from `master`, merged to `integration`, then deleted
+- **Lifespan**: Created from `main`, merged to `integration`, then deleted
 - **Scope**: Single application focus, complete package development
 
 #### `hotfix/[appname]-[issue]` - Emergency Fixes
 - **Purpose**: Critical fixes to existing packages
-- **Source**: Created from `master`
-- **Target**: Merge directly to `master` after testing
+- **Source**: Created from `main`
+- **Target**: Merge directly to `main` after testing
 - **Examples**: `hotfix/jenkins-security-update`
 
 ---
@@ -45,9 +53,9 @@ feature/package-[appname] (individual development)
 ### 1. Starting New Package Development
 
 ```bash
-# Ensure master is up-to-date
-git checkout master
-git pull origin master
+# Start from integration branch (not main)
+git checkout integration
+git pull origin integration
 
 # Create feature branch
 git checkout -b feature/package-[appname]
@@ -100,18 +108,18 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 git push origin feature/package-[appname]
 ```
 
-### 4. Integration Process
+### 4. Merge to Integration Branch
 
 ```bash
-# Switch to integration branch
+# Push final changes to feature branch
+git push origin feature/package-[appname]
+
+# Switch to integration and merge feature branch directly
 git checkout integration
 git pull origin integration
 
-# Merge feature branch
+# Merge feature branch (no PR needed for integration)
 git merge feature/package-[appname]
-
-# Test integration
-# ... run integration tests ...
 
 # Push to integration
 git push origin integration
@@ -121,21 +129,195 @@ git branch -d feature/package-[appname]
 git push origin --delete feature/package-[appname]
 ```
 
-### 5. Production Release
+### 5. Production Release via Pull Request
 
 ```bash
-# After integration validation (1-3 days)
-git checkout master
-git pull origin master
+# When ready for production (multiple packages in integration)
+git checkout integration
+git pull origin integration
 
-# Merge from integration
-git merge integration
+# Create PR from integration to main using tea CLI
+tea pr create \
+  --title "release: $(date +%Y-%m-%d) package release" \
+  --body "$(cat <<'EOF'
+## Release Summary
+Production release containing validated packages ready for deployment.
 
-# Tag release
+## Packages Included
+- [AppName1]: [brief description]
+- [AppName2]: [brief description]
+- [AppName3]: [brief description]
+
+## Validation Completed
+- [x] All packages build successfully
+- [x] Integration testing completed
+- [x] No conflicts between packages
+- [x] Documentation updated
+- [x] Quality standards met
+
+## Impact
+- Ready for production deployment
+- No breaking changes
+- All packages follow established patterns
+
+**Requires maintainer approval before merge**
+EOF
+)" \
+  --base main \
+  --head integration
+
+# Wait for maintainer approval and merge
+# After merge, tag the release
+git checkout main
+git pull origin main
 git tag -a v$(date +%Y.%m.%d) -m "Release $(date +%Y-%m-%d): [package list]"
+git push origin main --tags
+```
 
-# Push with tags
-git push origin master --tags
+---
+
+## 🍵 Gitea & Tea CLI Integration
+
+### Tea CLI Setup
+```bash
+# Install tea CLI (if not already installed)
+# Visit: https://gitea.com/gitea/tea#installation
+
+# Configure tea for your Gitea instance
+tea login add --name knel --url https://git.knownelement.com --token [your-token]
+
+# Verify configuration
+tea whoami
+```
+
+### PR Templates with Tea
+
+#### Feature Package PR Template
+```bash
+# Template for individual package PRs to integration
+tea pr create \
+  --title "feat(${app_name}): add Cloudron package" \
+  --body "$(cat <<EOF
+## 📦 Package: ${app_name}
+
+### Summary
+Implements ${app_name} Cloudron package with proper addon integration and follows established patterns.
+
+### 🔧 Technical Details
+- **Base Image**: cloudron/base:4.2.0
+- **Addons Required**: ${addons_list}
+- **Memory Limit**: ${memory_limit}MB
+- **Health Check**: ${health_check_path}
+- **Complexity**: ${complexity}
+
+### 📋 Changes
+- ✅ CloudronManifest.json with proper addon configuration
+- ✅ Dockerfile following Cloudron conventions  
+- ✅ start.sh with initialization and error handling
+- ✅ Configuration files and templates
+- ✅ Build notes documentation
+
+### 🧪 Testing Checklist
+- [x] Docker build successful
+- [x] Basic functionality verified
+- [x] Health check endpoint working
+- [x] Addon integration tested
+- [ ] Full Cloudron deployment test (if available)
+
+### 📚 Documentation
+- [x] Build notes complete
+- [x] Configuration documented
+- [x] Known limitations noted
+- [x] TASKS.md updated
+
+**Auto-merge after CI passes ✅**
+EOF
+)" \
+  --base integration \
+  --head feature/package-${app_name}
+```
+
+#### Production Release PR Template
+```bash
+# Template for integration → main PRs (requires approval)
+tea pr create \
+  --title "release: $(date +%Y-%m-%d) production package release" \
+  --body "$(cat <<EOF
+## 🚀 Production Release: $(date +%B %d, %Y)
+
+### 📦 Packages Ready for Production
+$(git log --oneline integration ^main --grep="feat(" | sed 's/.*feat(\([^)]*\)).*/- **\1**: Ready for deployment/')
+
+### ✅ Validation Summary
+- [x] All packages build successfully without errors
+- [x] Integration testing completed across packages  
+- [x] No resource conflicts or port collisions
+- [x] Documentation complete and up-to-date
+- [x] Quality standards met for all packages
+- [x] Security review completed
+
+### 🔍 Quality Gates Passed
+- **Build Success Rate**: 100%
+- **Test Coverage**: All packages validated
+- **Documentation**: Complete
+- **Standards Compliance**: ✅
+
+### 📊 Impact Assessment  
+- **New Packages**: $(git log --oneline integration ^main --grep="feat(" | wc -l)
+- **Breaking Changes**: None
+- **Deployment Risk**: Low
+- **Rollback Plan**: Available
+
+### 🎯 Post-Merge Actions
+- [ ] Tag release: v$(date +%Y.%m.%d)
+- [ ] Update deployment documentation
+- [ ] Notify deployment team
+- [ ] Monitor initial deployments
+
+**⚠️ REQUIRES MAINTAINER APPROVAL ⚠️**
+EOF
+)" \
+  --base main \
+  --head integration
+```
+
+### Tea CLI Common Commands
+```bash
+# List open PRs
+tea pr list
+
+# Check PR status
+tea pr view [pr-number]
+
+# Close/merge PR (for maintainers)
+tea pr merge [pr-number]
+
+# Create draft PR
+tea pr create --draft
+
+# Add reviewers to PR
+tea pr create --reviewer @maintainer
+
+# Link PR to issue
+tea pr create --body "Closes #123"
+```
+
+### Automated Workflow Helpers
+```bash
+# Quick PR creation function (add to ~/.bashrc)
+create_package_pr() {
+  local app_name=$1
+  local complexity=${2:-"Medium"}
+  local addons=${3:-"localstorage, postgresql"}
+  
+  tea pr create \
+    --title "feat(${app_name}): add Cloudron package" \
+    --body "Implements ${app_name} package. Complexity: ${complexity}. Addons: ${addons}" \
+    --base integration \
+    --head feature/package-${app_name}
+}
+
+# Usage: create_package_pr "jenkins" "High" "localstorage, postgresql, redis"
 ```
 
 ---
@@ -211,7 +393,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 ### Weekly Release Cycle
 - **Monday**: Integration branch validation begins
 - **Wednesday**: Final validation and testing
-- **Friday**: Merge to master and tag release
+- **Friday**: Merge to main and tag release
 
 ### Release Versioning
 - **Format**: `v2025.01.15` (date-based)
@@ -249,7 +431,7 @@ cloudron install --image test/[appname]:feature
 
 ### Production Validation
 ```bash
-# Before master merge - production readiness
+# Before main merge - production readiness
 # Full Cloudron deployment testing
 # Performance and stability validation
 # Documentation completeness check
@@ -267,7 +449,7 @@ cloudron install --image test/[appname]:feature
 ### Integration Success Rate
 - **Target**: >95% of packages pass integration testing
 - **Measurement**: Packages requiring hotfixes after integration
-- **Quality Gate**: All tests pass before master merge
+- **Quality Gate**: All tests pass before main merge
 
 ### Release Stability
 - **Target**: <5% of releases require hotfixes
@@ -279,10 +461,10 @@ cloudron install --image test/[appname]:feature
 ## 🚨 Emergency Procedures
 
 ### Critical Package Issue
-1. Create `hotfix/[appname]-[issue]` from `master`
+1. Create `hotfix/[appname]-[issue]` from `main`
 2. Implement minimal fix
 3. Test fix thoroughly
-4. Merge directly to `master` with approval
+4. Merge directly to `main` with approval
 5. Cherry-pick to `integration` if needed
 6. Update affected downstream deployments
 

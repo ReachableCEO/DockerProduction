@@ -75,7 +75,7 @@ Package ~100 applications for KNEL's Cloudron platform to create a comprehensive
 
 ### Git Strategy
 ```
-master (stable packages)
+main (stable packages)
   ↑
 integration (testing multiple packages)
   ↑
@@ -91,7 +91,7 @@ feature/package-[appname] (individual development)
 6. **Document** → Create comprehensive build notes
 7. **Review** → Code review and quality assurance
 8. **Integrate** → Merge to integration branch
-9. **Release** → Promote to master after validation
+9. **Release** → Promote to main after validation
 
 ### Automation Goals
 - [ ] Automated testing of package builds

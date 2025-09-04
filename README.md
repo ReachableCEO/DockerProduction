@@ -64,6 +64,9 @@ chmod +x CloudronPackagingWorkspace/*.sh
 
 ### 2. Create Feature Branch
 ```bash
+# Start from integration branch (not main!)
+git checkout integration
+git pull origin integration
 git checkout -b feature/package-[appname]
 ```
 
@@ -119,7 +122,7 @@ git push origin feature/package-[appname]
 ## 🏷️ Git Workflow
 
 ### Branch Strategy
-- **`master`**: Stable, production-ready packages
+- **`main`**: Stable, production-ready packages
 - **`integration`**: Integration branch for testing multiple packages
 - **`feature/package-[appname]`**: Individual application packaging
 - **`hotfix/[appname]-[issue]`**: Critical fixes
