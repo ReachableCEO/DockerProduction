@@ -5,7 +5,7 @@
   "description": "InvenTree is an open-source inventory management system which provides intuitive parts management and stock control.",
   "tagline": "Open Source Inventory Management System",
   "version": "1.0.0",
-  "healthCheckPath": "/",
+  "healthCheckPath": "/api/generic/status/",
   "httpPort": 8000,
   "manifestVersion": 2,
   "website": "https://inventree.org",
