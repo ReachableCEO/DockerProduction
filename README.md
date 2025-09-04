@@ -168,6 +168,12 @@ Each Cloudron package requires:
 - **Mounted**: Repository at `/workspace`
 - **Persistent**: Survives across development sessions
 
+### AI Coding Assistants
+- **[AGENT.md](AGENT.md)**: Comprehensive guide for using OpenCode, Gemini CLI, and Claude
+- **[GEMINI.md](GEMINI.md)**: → Symbolic link to AGENT.md
+- **[CLAUDE.md](CLAUDE.md)**: → Symbolic link to AGENT.md
+- **Usage**: Accelerate development with AI-assisted packaging
+
 ### Helper Scripts
 - **`UpstreamVendor-Clone.sh`**: Clone all upstream repositories
 - **`UpstreamVendor-Update.sh`**: Update existing checkouts
