@@ -3,10 +3,10 @@
 ## 📊 Progress Overview
 
 - **Total Applications**: 56 identified in workspace
-- **Completed**: 1 (EasyGate ✅)
+- **Completed**: 2 (EasyGate ✅, Rathole ✅)
 - **In Progress**: 2 (InvenTree 🚧, APISIX 🚧)
-- **Remaining**: 53
-- **Completion Rate**: 1.8%
+- **Remaining**: 52
+- **Completion Rate**: 3.57%
 
 ---
 
@@ -72,7 +72,7 @@
 | Payroll Engine | ⏳ | LOW | High | 10-14 | Payroll processing |
 | PLMore | ⏳ | LOW | Medium | 6-8 | Programming language tools |
 | Puter | ⏳ | LOW | Medium | 6-8 | Web desktop |
-| Rathole | ⏳ | LOW | Low | 2-4 | Tunneling tool |
+| Rathole | ✅ | LOW | Low | 2-4 | Tunneling tool |
 
 **Target Completion**: End of Q3 2025
 
@@ -107,6 +107,7 @@
 | Application | Completed Date | Notes | Package Location |
 |------------|----------------|--------|------------------|
 | Easy Gate | 2025-01-04 | Simple dashboard gateway | `CloudronPackages/EasyGate/` |
+| Rathole | 2025-09-04 | Secure NAT traversal reverse proxy | `CloudronPackages/Rathole/` |
 
 ---
 
@@ -152,7 +153,7 @@
 - [ ] Complete APISIX package
 - [ ] Finish InvenTree package
 - [ ] Start Jenkins package
-- [ ] Update documentation
+- [x] Update documentation
 
 ### Week of 2025-01-13
 - [ ] Complete Jenkins package
