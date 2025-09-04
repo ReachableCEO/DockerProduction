@@ -1,0 +1,32 @@
+{
+  "id": "rathole",
+  "title": "Rathole",
+  "description": "A secure, stable, and high-performance reverse proxy for NAT traversal.",
+  "tagline": "Secure NAT traversal reverse proxy",
+  "icon": "https://cdn.cloudron.io/icons/rathole.svg",
+  "main": {
+    "type": "docker",
+    "image": "cloudron/base:4.2.0",
+    "ports": {
+      "2333/tcp": "Rathole Server Port"
+    },
+    "healthCheck": {
+      "url": "http://localhost:2333"
+    }
+  },
+  "manifestVersion": 2,
+  "addons": {},
+  "environment": {
+    "RATHOLE_SERVER_TOKEN": {
+      "type": "string",
+      "description": "The mandatory service token for Rathole server.",
+      "required": true
+    },
+    "RATHOLE_SERVER_PORT": {
+      "type": "string",
+      "description": "The port Rathole server will listen on. Default is 2333.",
+      "required": false,
+      "default": "2333"
+    }
+  }
+}
