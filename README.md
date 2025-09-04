@@ -6,25 +6,25 @@ This repository contains the infrastructure and tooling for packaging applicatio
 
 ```
 KNELProductionContainers/
-├── README.md                          # This file
-├── PLAN.md                           # Overall packaging strategy and roadmap  
-├── TASKS.md                          # Application checklist and status
-├── WORKLOG.md                        # Development progress log
-├── .gitignore                        # Git exclusions for workspace
+├── [README.md](README.md)                          # This file
+├── [PLAN.md](PLAN.md)                           # Overall packaging strategy and roadmap  
+├── [TASKS.md](TASKS.md)                          # Application checklist and status
+├── [WORKLOG.md](WORKLOG.md)                        # Development progress log
+├── [.gitignore](.gitignore)                        # Git exclusions for workspace
 │
-├── CloudronPackages/                 # ✅ Final tested packages (tracked in git)
-│   ├── PackageTemplate/             # Template and LLM prompts
-│   ├── EasyGate/                    # Completed packages
+├── [CloudronPackages/](CloudronPackages/)                 # ✅ Final tested packages (tracked in git)
+│   ├── [PackageTemplate/](CloudronPackages/PackageTemplate/)             # Template and LLM prompts
+│   ├── [EasyGate/](CloudronPackages/EasyGate/)                    # Completed packages
 │   └── [AppName]/                   # Individual app packages
 │
-├── CloudronPackagingWorkspace/      # 🚧 Development workspace  
+├── [CloudronPackagingWorkspace/](CloudronPackagingWorkspace/)      # 🚧 Development workspace  
 │   ├── Docker/ (gitignored)         # ~100 cloned upstream repositories
 │   ├── NonDocker/ (gitignored)      # Non-Docker applications
-│   ├── UpstreamVendor-Clone.sh     # Script to clone upstream sources
-│   └── UpstreamVendor-Update.sh    # Script to update upstream sources
+│   ├── [UpstreamVendor-Clone.sh](CloudronPackagingWorkspace/UpstreamVendor-Clone.sh)     # Script to clone upstream sources
+│   └── [UpstreamVendor-Update.sh](CloudronPackagingWorkspace/UpstreamVendor-Update.sh)    # Script to update upstream sources
 │
-├── KNEL-Cloudron/                   # 🏢 KNEL-specific deployment configs
-└── KNEL-NonCloudron/               # Non-Cloudron container configs
+├── [KNEL-Cloudron/](KNEL-Cloudron/)                   # 🏢 KNEL-specific deployment configs
+└── [KNEL-NonCloudron/](KNEL-NonCloudron/)               # Non-Cloudron container configs
 ```
 
 ## 🚀 Quick Start
@@ -59,8 +59,8 @@ chmod +x CloudronPackagingWorkspace/*.sh
 ## 📋 Packaging Workflow
 
 ### 1. Choose Application
-- Check `TASKS.md` for priority applications
-- Verify upstream source is available in `CloudronPackagingWorkspace/Docker/`
+- Check [TASKS.md](TASKS.md) for priority applications
+- Verify upstream source is available in [CloudronPackagingWorkspace/Docker/](CloudronPackagingWorkspace/Docker/)
 
 ### 2. Create Feature Branch
 ```bash
@@ -105,15 +105,15 @@ cloudron install --image registry/[appname]:version
 mv /workspace/[appname]_package_new ./CloudronPackages/[AppName]/
 
 # Update documentation
-# - Add entry to TASKS.md
-# - Update WORKLOG.md
+# - Add entry to [TASKS.md](TASKS.md)
+# - Update [WORKLOG.md](WORKLOG.md)
 # - Document any special requirements
 ```
 
 ### 6. Create Pull Request
 ```bash
 git add CloudronPackages/[AppName]/
-git add TASKS.md WORKLOG.md
+git add [TASKS.md](TASKS.md) [WORKLOG.md](WORKLOG.md)
 git commit -m "Add [AppName] Cloudron package"
 git push origin feature/package-[appname]
 # Create PR to integration branch
@@ -175,9 +175,9 @@ Each Cloudron package requires:
 - **Usage**: Accelerate development with AI-assisted packaging
 
 ### Helper Scripts
-- **`UpstreamVendor-Clone.sh`**: Clone all upstream repositories
-- **`UpstreamVendor-Update.sh`**: Update existing checkouts
-- **Template Prompt**: `CloudronPackages/PackageTemplate/CloudronPackagePrompt.md`
+- **[UpstreamVendor-Clone.sh](CloudronPackagingWorkspace/UpstreamVendor-Clone.sh)**: Clone all upstream repositories
+- **[UpstreamVendor-Update.sh](CloudronPackagingWorkspace/UpstreamVendor-Update.sh)**: Update existing checkouts
+- **Template Prompt**: [CloudronPackagePrompt.md](CloudronPackages/PackageTemplate/CloudronPackagePrompt.md)
 
 ### Cloudron Resources
 - [Official Packaging Tutorial](https://docs.cloudron.io/packaging/tutorial/)
@@ -186,9 +186,9 @@ Each Cloudron package requires:
 
 ## 📊 Progress Tracking
 
-- **Overall Progress**: See `TASKS.md`
-- **Daily Progress**: See `WORKLOG.md`  
-- **Strategy & Roadmap**: See `PLAN.md`
+- **Overall Progress**: See [TASKS.md](TASKS.md)
+- **Daily Progress**: See [WORKLOG.md](WORKLOG.md)  
+- **Strategy & Roadmap**: See [PLAN.md](PLAN.md)
 
 ### Current Status
 - ✅ Repository structure established
@@ -200,8 +200,8 @@ Each Cloudron package requires:
 ## 🤝 Contributing
 
 ### For KNEL Team Members
-1. Review `PLAN.md` for current priorities
-2. Check `TASKS.md` for available applications
+1. Review [PLAN.md](PLAN.md) for current priorities
+2. Check [TASKS.md](TASKS.md) for available applications
 3. Follow the packaging workflow above
 4. Update documentation as you work
 5. Create feature branches for each application
